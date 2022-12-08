@@ -52,10 +52,10 @@ const Profile = () => {
             title="Edit your personal details"
             open={modal2Open}
             footer={null}
-            style={{ width: { xs: "100%", sm: "100%" } }}
+            style={{ width: { sm: "100%" } }}
           >
             <Form
-              labelCol={{ span: 8 }}
+              labelCol={{ span: { sm: 8, xl: 5 } }}
               wrapperCol={{ span: 17 }}
               layout="horizontal"
             >
