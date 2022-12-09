@@ -6,14 +6,16 @@ import {
 } from "redux";
 
 import thunk from "redux-thunk";
-import authReducer from "./auth/reducer";
-import cartReducer from "./cart/reducer";
-import productsReducer from "./products/reducer";
+import { orderReducer } from "./order/reducer";
+import { authReducer } from "./auth/reducer";
+import { cartReducer } from "./bag/reducer";
+import { productReducer } from "./product/reducer";
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  products: productsReducer,
+  products: productReducer,
   carts: cartReducer,
+  orders: orderReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
