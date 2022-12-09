@@ -1,11 +1,10 @@
 .productCon {
   width: 100%;
-  height: 100vh;
 }
 .proContainer {
   width: 100%;
   margin: auto;
-  padding: 6rem 1.3rem 1rem 1.3rem;
+  padding: 6rem 1.3rem 0.5rem 1.3rem;
   border-bottom: 1px solid rgb(231, 231, 231);
 }
 .proNavigation {
@@ -30,7 +29,7 @@
   display: flex;
   justify-content: space-between;
   color: rgb(42, 42, 42);
-  margin-top: 25px;
+  margin-top: 15px;
   align-items: center;
 }
 .proSort > p {
@@ -40,4 +39,33 @@
 .proSort > div {
   display: flex;
   gap: 10px;
+}
+.proBox {
+  display: flex;
+  width: 100%;
+  height: 150vh;
+  overflow-y: auto;
+}
+.proBox::-webkit-scrollbar {
+  display: none;
+}
+.proFilters {
+  width: 270px;
+  overflow-y: auto;
+  padding: 1rem;
+}
+.proFilters::-webkit-scrollbar {
+  display: none;
+}
+.proGrid {
+  width: 83%;
+  border: 1px solid rgb(237, 237, 237);
+  padding: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+.proGrid > div {
+  width: 210px;
 }

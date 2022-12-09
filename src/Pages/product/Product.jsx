@@ -1,6 +1,7 @@
 import React from "react";
 import "./Product.css";
 import { Select } from "antd";
+import ProComp from "../../Components/product/ProComp";
 
 const Product = () => {
   const sortOptions = [
@@ -78,6 +79,68 @@ const Product = () => {
               options={sizeOptions}
             />
           </div>
+        </div>
+      </div>
+      <div className="proBox">
+        <div className="proFilters">
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+          <h1>a</h1>
+        </div>
+        <div className="proGrid">
+          <ProComp />
+          <ProComp />
+          <ProComp />
+          <ProComp />
+          <ProComp />
+          <ProComp />
+          <ProComp />
+          <ProComp />
+          <ProComp />
+          <ProComp />
+          <ProComp />
+          <ProComp />
+          <ProComp />
+          <ProComp />
+          <ProComp />
+          <ProComp />
+          <ProComp />
+          <ProComp />
+          <ProComp />
+          <ProComp />
         </div>
       </div>
     </div>
