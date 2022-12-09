@@ -9,11 +9,11 @@ const ProComp = () => {
           alt=""
         />
       </div>
-      <diV>
+      <div className="itemDetails">
         <p>Brand name</p>
         <p>product description</p>
         <p>Price , Discount , off</p>
-      </diV>
+      </div>
     </div>
   );
 };

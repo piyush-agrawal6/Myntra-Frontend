@@ -50,7 +50,6 @@ const Product = () => {
           Products - <span>133536 items</span>
         </p>
         <div className="proSort">
-          <p>FILTERS</p>
           <div>
             <Select
               size="large"
@@ -82,60 +81,8 @@ const Product = () => {
         </div>
       </div>
       <div className="proBox">
-        <div className="proFilters">
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-          <h1>a</h1>
-        </div>
+        <div className="proFilters"></div>
         <div className="proGrid">
-          <ProComp />
-          <ProComp />
-          <ProComp />
-          <ProComp />
-          <ProComp />
-          <ProComp />
-          <ProComp />
-          <ProComp />
-          <ProComp />
-          <ProComp />
-          <ProComp />
-          <ProComp />
-          <ProComp />
-          <ProComp />
-          <ProComp />
           <ProComp />
           <ProComp />
           <ProComp />
