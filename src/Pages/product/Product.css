@@ -67,6 +67,9 @@
   width: 210px;
 }
 @media (max-width: 720px) {
+  .proSkeleton {
+    padding: 2rem;
+  }
   .proContainer {
     padding: 3.5rem 1.3rem 0.5rem 1.3rem;
   }

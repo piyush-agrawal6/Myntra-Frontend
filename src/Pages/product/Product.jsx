@@ -97,26 +97,66 @@ const Product = () => {
         <div className="proFilters"></div>
         {pro_loading ? (
           <div className="proGrid">
-            <Skeleton active />
-            <Skeleton active />
-            <Skeleton active />
-            <Skeleton active />
-            <Skeleton active />
-            <Skeleton active />
-            <Skeleton active />
-            <Skeleton active />
-            <Skeleton active />
-            <Skeleton active />
-            <Skeleton active />
-            <Skeleton active />
-            <Skeleton active />
-            <Skeleton active />
-            <Skeleton active />
-            <Skeleton active />
-            <Skeleton active />
-            <Skeleton active />
-            <Skeleton active />
-            <Skeleton active />
+            <div className="proSkeleton">
+              <Skeleton active />
+            </div>
+            <div className="proSkeleton">
+              <Skeleton active />
+            </div>
+            <div className="proSkeleton">
+              <Skeleton active />
+            </div>
+            <div className="proSkeleton">
+              <Skeleton active />
+            </div>
+            <div className="proSkeleton">
+              <Skeleton active />
+            </div>
+            <div className="proSkeleton">
+              <Skeleton active />
+            </div>
+            <div className="proSkeleton">
+              <Skeleton active />
+            </div>
+            <div className="proSkeleton">
+              <Skeleton active />
+            </div>
+            <div className="proSkeleton">
+              <Skeleton active />
+            </div>
+            <div className="proSkeleton">
+              <Skeleton active />
+            </div>
+            <div className="proSkeleton">
+              <Skeleton active />
+            </div>
+            <div className="proSkeleton">
+              <Skeleton active />
+            </div>
+            <div className="proSkeleton">
+              <Skeleton active />
+            </div>
+            <div className="proSkeleton">
+              <Skeleton active />
+            </div>
+            <div className="proSkeleton">
+              <Skeleton active />
+            </div>
+            <div className="proSkeleton">
+              <Skeleton active />
+            </div>
+            <div className="proSkeleton">
+              <Skeleton active />
+            </div>
+            <div className="proSkeleton">
+              <Skeleton active />
+            </div>
+            <div className="proSkeleton">
+              <Skeleton active />
+            </div>
+            <div className="proSkeleton">
+              <Skeleton active />
+            </div>
           </div>
         ) : (
           <div className="proGrid">
