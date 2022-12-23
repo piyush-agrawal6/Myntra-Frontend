@@ -1,19 +1,37 @@
 import React from "react";
 import "./ProComp.css";
-const ProComp = () => {
+import { RiStarSFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
+const ProComp = ({ product }) => {
+  // console.log(product);
+  const {
+    images,
+    rating,
+    count,
+    brand,
+    title,
+    price,
+    off_price,
+    discount,
+    _id: id,
+  } = product;
   return (
     <div className="itemBox">
-      <div className="itemImage">
-        <img
-          src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/4929150/2018/8/10/6a260cd5-21a5-42c8-83d8-ff073da463561533883334038-Roadster-Men-Jackets-9741533883332889-1.jpg"
-          alt=""
-        />
-      </div>
-      <div className="itemDetails">
-        <p>Brand name</p>
-        <p>product description</p>
-        <p>Price , Discount , off</p>
-      </div>
+      <Link color="a" to={id}>
+        <div className="itemImage">
+          <img src={images.image1} alt="ProductImage" />
+          <p>
+            {rating} <RiStarSFill className="itemStars" /> | {count}
+          </p>
+        </div>
+        <div className="itemDetails">
+          <h4>{brand}</h4>
+          <p>{title}</p>
+          <div>
+            Rs. {price} <s>Rs. {off_price}</s> <span>({discount}% OFF)</span>
+          </div>
+        </div>
+      </Link>
     </div>
   );
 };

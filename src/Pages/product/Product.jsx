@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Product.css";
 import { Select } from "antd";
 import ProComp from "../../Components/product/ProComp";
-
+import { getProduct } from "../../Redux/product/action";
+import { useSelector, useDispatch } from "react-redux";
+import { Skeleton } from "antd";
 const Product = () => {
+  const dispatch = useDispatch();
+  const {
+    pro_loading,
+    pro_error,
+    products: { data },
+  } = useSelector((store) => store.products);
+  console.log(pro_error, pro_loading, data);
+  useEffect(() => {
+    dispatch(getProduct());
+  }, [dispatch]);
+
   const sortOptions = [
     {
       label: "Better Discount",
@@ -47,7 +60,7 @@ const Product = () => {
           <span>Home /</span> Men
         </p>
         <p className="proCount">
-          Products - <span>133536 items</span>
+          Products - <span>{data?.productLength} items</span>
         </p>
         <div className="proSort">
           <div>
@@ -82,13 +95,37 @@ const Product = () => {
       </div>
       <div className="proBox">
         <div className="proFilters"></div>
-        <div className="proGrid">
-          <ProComp />
-          <ProComp />
-          <ProComp />
-          <ProComp />
-          <ProComp />
-        </div>
+        {pro_loading ? (
+          <div className="proGrid">
+            <Skeleton active />
+            <Skeleton active />
+            <Skeleton active />
+            <Skeleton active />
+            <Skeleton active />
+            <Skeleton active />
+            <Skeleton active />
+            <Skeleton active />
+            <Skeleton active />
+            <Skeleton active />
+            <Skeleton active />
+            <Skeleton active />
+            <Skeleton active />
+            <Skeleton active />
+            <Skeleton active />
+            <Skeleton active />
+            <Skeleton active />
+            <Skeleton active />
+            <Skeleton active />
+            <Skeleton active />
+          </div>
+        ) : (
+          <div className="proGrid">
+            {data &&
+              data.products.map((pro, i) => {
+                return <ProComp product={pro} key={i} />;
+              })}
+          </div>
+        )}
       </div>
     </div>
   );

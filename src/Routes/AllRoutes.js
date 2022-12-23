@@ -12,6 +12,7 @@ import Bag from "../Pages/bag/Bag";
 import Orders from "../Pages/orders/Orders";
 import NewLogin from "../Pages/login/NewLogin";
 import Product from "../Pages/product/Product";
+import SingleProduct from "../Pages/product/SingleProduct";
 const AllRoutes = () => {
   return (
     <>
@@ -27,6 +28,7 @@ const AllRoutes = () => {
         <Route path="/bag" element={<Bag />}></Route>
         <Route path="/orders" element={<Orders />}></Route>
         <Route path="/product" element={<Product />}></Route>
+        <Route path="/product/:id" element={<SingleProduct />}></Route>
       </Routes>
       <Footer />
     </>

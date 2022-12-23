@@ -3,9 +3,12 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import "./Home.css";
 import { Link } from "react-router-dom";
+import MetaData from "../../Components/MetaData";
+
 const Home = () => {
   return (
     <div>
+      <MetaData title={"Home Page"} />
       <div className="HomeCarousel">
         <Carousel infiniteLoop autoPlay>
           <div className="image">
