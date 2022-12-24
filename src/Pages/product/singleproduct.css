@@ -2,32 +2,106 @@
   padding-top: 5rem;
 }
 .singleProNavigation {
-  padding: 15px 25px;
-  background-color: rgb(249, 249, 249);
+  padding: 24px 2rem;
+  font-size: 14px;
+  color: rgb(47, 45, 45);
+  font-weight: 300;
+}
+.singleProNavigation span {
+  font-weight: 600;
 }
 .singlePro {
   display: flex;
-  margin-top: 20px;
 }
 .singleProGallery {
+  height: 80vh;
   width: 50%;
   overflow: hidden;
+  margin: 2rem;
+  margin-top: 0;
 }
 .swipeImage {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 80vh;
   overflow: hidden;
 }
 .swipeImage img {
-  width: 58%;
+  width: 100%;
 }
 .singleProDetails {
   width: 50%;
-  padding: 1.5rem;
 }
-
+.singleProName {
+  border-bottom: 1px solid rgb(213, 213, 213);
+  margin-right: 2rem;
+}
+.singleProName > h2:nth-child(1) {
+  font-weight: 600;
+  color: rgb(29, 28, 28);
+}
+.singleProName > h2:nth-child(2) {
+  font-weight: 300;
+  color: rgb(82, 82, 82);
+  font-size: 18px;
+}
+.singleProName > p {
+  width: 180px;
+  font-weight: 300;
+  color: rgb(121, 121, 121);
+  font-size: 15px;
+  margin: 10px 0 20px 0;
+  border: 1px solid rgb(231, 231, 231);
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.singleProName > p:hover {
+  border: 1px solid rgb(117, 117, 117);
+}
+.singleProName > p span {
+  font-weight: 600;
+}
+.singleItemDetails > div {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-weight: 600;
+  color: #282c3f;
+  font-size: 20px;
+  padding-top: 20px;
+  margin-bottom: 10px;
+}
+.singleItemDetails > div s {
+  font-size: 17px;
+  color: gray;
+  font-weight: 400;
+}
+.singleItemDetails > div span {
+  font-size: 17px;
+  color: #ff925a;
+  font-weight: 400;
+}
+.singleItemDetails > p {
+  font-size: 13px;
+  color: #14958f;
+  font-weight: 600;
+  margin: 10px 0;
+}
+.singleItemDetails > h5 {
+  padding-bottom: 25px;
+  border-bottom: 1px solid rgb(213, 213, 213);
+  margin-right: 2rem;
+}
+.singleProQuantity {
+  width: 50%;
+  padding: 15px 0;
+}
 @media (max-width: 1000px) {
   .singlePro {
     flex-direction: column;
@@ -45,7 +119,7 @@
   }
   .singleProDetails {
     width: 100%;
-    height: 50vh;
+    height: auto;
   }
 }
 @media (max-width: 920px) {

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getProductDetails } from "../../Redux/product/action";
@@ -6,38 +6,84 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
+import { Slider } from "antd";
 import "./singleproduct.css";
+import { RiStarSFill } from "react-icons/ri";
 const SingleProduct = () => {
   let { id } = useParams();
+  const [proQuantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
-  const data = useSelector((store) => store.products.product);
+  const { product, pro_loading: loading } = useSelector(
+    (store) => store.products
+  );
+  console.log(product);
   let image = [];
-  if (data) {
-    for (let key in data.images) {
-      image.push(data.images[key]);
+  if (product) {
+    for (let key in product.images) {
+      image.push(product.images[key]);
     }
   }
-  console.log(image);
-
   useEffect(() => {
     dispatch(getProductDetails(id));
   }, [id, dispatch]);
+
+  if (loading) {
+    return "Loading...";
+  }
   return (
     <div className="singleProComponent">
-      <div className="singleProNavigation">Home / Men / Product</div>
+      <div className="singleProNavigation">
+        Home / {product.gender} /{" "}
+        <span>
+          {product.categories ? product.categories : product.category} /{" "}
+          {product.brand}
+        </span>
+      </div>
       <div className="singlePro">
         <div className="singleProGallery">
           <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
-            {image?.map((e) => {
+            {image?.map((e, i) => {
               return (
-                <SwiperSlide className="swipeImage">
+                <SwiperSlide className="swipeImage" key={i}>
                   <img src={e} alt="images" />
                 </SwiperSlide>
               );
             })}
           </Swiper>
         </div>
-        <div className="singleProDetails"></div>
+        <div className="singleProDetails">
+          <div className="singleProName">
+            <h2>{product.brand}</h2>
+            <h2>{product.title}</h2>
+            <p>
+              <span> {product.rating} </span>
+              <RiStarSFill className="itemStars" /> | {product.count} Reviews
+            </p>
+          </div>
+          <div className="singleItemDetails">
+            <div>
+              Rs. {product.price} <s>Rs. {product.off_price}</s>
+              <span>({product.discount}% OFF)</span>
+            </div>
+            <p>Inclusive of all taxes</p>
+            <h5 style={{ color: product.stock ? "#14958f" : "red" }}>
+              Status : {product.stock ? "InStock" : "Out Of Stock"}
+            </h5>
+          </div>
+          <div className="singleProQuantity">
+            <p>Select Quantity - {proQuantity}</p>
+            <Slider
+              defaultValue={1}
+              max={product.stock > 20 ? 20 : product.stock}
+              onChange={(e) => setQuantity(e)}
+            />
+          </div>
+          <div>
+            <button>ADD TO BAG</button>
+            <button>GO TO BAG</button>
+            <button>WISHLIST</button>
+          </div>
+        </div>
       </div>
       <div className="singleProReviews"></div>
     </div>

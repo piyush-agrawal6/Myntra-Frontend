@@ -24,7 +24,6 @@ export const getProductDetails = (id) => async (dispatch) => {
     const data = await axios.get(
       `https://myntra-backend-api.onrender.com/product/${id}`
     );
-    console.log(data.data)
     dispatch({
       type: types.PRODUCT_DETAILS_SUCCESS,
       payload: data.data.product,
