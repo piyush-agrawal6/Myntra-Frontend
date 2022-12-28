@@ -6,7 +6,7 @@ export const getProduct = () => async (dispatch) => {
   try {
     dispatch({ type: types.ALL_PRODUCT_REQUEST });
     const data = await axios.get(
-      "https://myntra-backend-api.onrender.com/product"
+      "https://busy-rose-earthworm-cap.cyclic.app/product"
     );
     dispatch({ type: types.ALL_PRODUCT_SUCCESS, payload: data });
   } catch (error) {
@@ -22,7 +22,7 @@ export const getProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: types.PRODUCT_DETAILS_REQUEST });
     const data = await axios.get(
-      `https://myntra-backend-api.onrender.com/product/${id}`
+      `https://busy-rose-earthworm-cap.cyclic.app/product/${id}`
     );
     dispatch({
       type: types.PRODUCT_DETAILS_SUCCESS,

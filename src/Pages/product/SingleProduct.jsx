@@ -9,10 +9,13 @@ import { Pagination } from "swiper";
 import { Slider } from "antd";
 import "./singleproduct.css";
 import { RiStarSFill } from "react-icons/ri";
+import { BiHeart, BiDetail } from "react-icons/bi";
+import { HiOutlineShoppingBag } from "react-icons/hi";
 const SingleProduct = () => {
   let { id } = useParams();
   const [proQuantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
+  const alreadyAdded = true;
   const { product, pro_loading: loading } = useSelector(
     (store) => store.products
   );
@@ -71,17 +74,31 @@ const SingleProduct = () => {
             </h5>
           </div>
           <div className="singleProQuantity">
-            <p>Select Quantity - {proQuantity}</p>
+            <p>Select Quantity : {proQuantity}</p>
             <Slider
               defaultValue={1}
               max={product.stock > 20 ? 20 : product.stock}
               onChange={(e) => setQuantity(e)}
             />
           </div>
-          <div>
-            <button>ADD TO BAG</button>
-            <button>GO TO BAG</button>
-            <button>WISHLIST</button>
+          <div className="singleProButtons">
+            <button className="addToCart">
+              <HiOutlineShoppingBag className="singleProIcons" />
+              {alreadyAdded ? "GO TO BAG" : "ADD TO BAG"}
+            </button>
+            <button className="addToList">
+              {" "}
+              <BiHeart className="singleProIcons" />
+              WISHLIST
+            </button>
+          </div>
+          <div className="singleProDescription">
+            <h3>
+              PRODUCT DETAILS <BiDetail />
+            </h3>
+            <p>{product.description}</p>
+            <h4>Color : {product.color}</h4>
+            {product.size ? <h4>{product.size}</h4> : null}
           </div>
         </div>
       </div>

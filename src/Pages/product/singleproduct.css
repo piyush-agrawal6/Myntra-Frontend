@@ -15,7 +15,7 @@
 }
 .singleProGallery {
   height: 80vh;
-  width: 50%;
+  width: 58%;
   overflow: hidden;
   margin: 2rem;
   margin-top: 0;
@@ -32,7 +32,7 @@
   width: 100%;
 }
 .singleProDetails {
-  width: 50%;
+  width: 42%;
 }
 .singleProName {
   border-bottom: 1px solid rgb(213, 213, 213);
@@ -101,6 +101,66 @@
 .singleProQuantity {
   width: 50%;
   padding: 15px 0;
+}
+.singleProButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgb(213, 213, 213);
+}
+.singleProIcons {
+  font-size: 22px;
+}
+.singleProButtons button {
+  width: 250px;
+  padding: 0.8rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.addToCart {
+  border: none;
+  color: white;
+  background-color: #ff3f6c;
+}
+.addToCart:hover {
+  background-color: #f75177;
+}
+.addToList {
+  background-color: white;
+  border: 1px solid rgb(195, 195, 195);
+}
+.addToList:hover {
+  border: 1px solid rgb(47, 47, 47);
+}
+.singleProDescription {
+  padding: 1rem 1rem 1rem 0;
+}
+.singleProDescription > h3 {
+  margin-bottom: 10px;
+  font-weight: 550;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.singleProDescription > p {
+  font-size: 15px;
+  color: rgb(73, 73, 73);
+}
+.singleProDescription > h4 {
+  font-size: 15px;
+  font-weight: 500;
+  color: rgb(73, 73, 73);
+  margin: 5px 0;
 }
 @media (max-width: 1000px) {
   .singlePro {
