@@ -19,7 +19,6 @@ const SingleProduct = () => {
   const { product, pro_loading: loading } = useSelector(
     (store) => store.products
   );
-  console.log(product);
   let image = [];
   if (product) {
     for (let key in product.images) {

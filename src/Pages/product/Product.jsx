@@ -35,24 +35,6 @@ const Product = () => {
       value: "desc",
     },
   ];
-  const sizeOptions = [
-    {
-      label: "XL",
-      value: "discount",
-    },
-    {
-      label: "SM",
-      value: "rating",
-    },
-    {
-      label: "MD",
-      value: "asc",
-    },
-    {
-      label: "XS",
-      value: "desc",
-    },
-  ];
   return (
     <div className="productCon">
       <div className="proContainer">
@@ -75,20 +57,6 @@ const Product = () => {
                 outline: "none",
               }}
               options={sortOptions}
-            />
-            <br />
-            <Select
-              mode="multiple"
-              size="large"
-              placeholder="Please Select Size"
-              style={{
-                width: 250,
-                border: "1px solid gray",
-                color: "black",
-                borderRadius: "8px",
-                outline: "none",
-              }}
-              options={sizeOptions}
             />
           </div>
         </div>

@@ -170,6 +170,7 @@
   .singleProGallery {
     height: 70vh;
     width: 100%;
+    margin: 0;
   }
   .swipeImage {
     height: 70vh;
@@ -180,21 +181,37 @@
   .singleProDetails {
     width: 100%;
     height: auto;
+    padding: 1rem;
+  }
+  .singleProButtons {
+    padding-right: 0;
   }
 }
 @media (max-width: 920px) {
   .singleProComponent {
     padding-top: 4rem;
   }
-}
-@media (max-width: 700px) {
   .singleProNavigation {
     display: none;
   }
 }
-@media (max-width: 520px) {
+@media (max-width: 550px) {
   .singleProComponent {
     padding-top: 3.7rem;
+  }
+
+  .singleProButtons {
+    gap: 0.5rem;
+    padding-right: 0;
+    padding-bottom: 1.5rem;
+  }
+  /* .singleProIcons {
+  font-size: 22px;
+} */
+  .singleProButtons button {
+    width: 49%;
+    padding: 0.8rem 2rem;
+    gap: 0.5rem;
   }
 }
 @media (max-width: 440px) {
@@ -211,6 +228,9 @@
 @media (max-width: 330px) {
   .singleProComponent {
     padding-top: 2rem;
+  }
+  .singleProButtons button {
+    width: 100%;
   }
 }
 @media (max-width: 305px) {
