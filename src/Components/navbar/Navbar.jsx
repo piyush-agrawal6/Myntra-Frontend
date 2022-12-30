@@ -1,19 +1,24 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { BiSearch, BiUser, BiHeart } from "react-icons/bi";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { MdClose } from "react-icons/md";
-import { RiAdminLine } from "react-icons/ri";
+// import { RiAdminLine } from "react-icons/ri";
 import { Dropdown } from "antd";
-
 const Navbar = () => {
   const [click, setClick] = useState(false);
+  const [keyword, setKeyword] = useState("");
   const handleClick = () => {
     setClick(!click);
   };
-  const user = "admin";
+  const navigate = useNavigate();
+  const handleSearchClick = () => {
+    if (keyword.trim()) {
+      return navigate(`/product/${keyword}`);
+    }
+  };
   const styleA = { left: "-100%" };
   const styleB = { left: "0%" };
   const login = false;
@@ -237,11 +242,12 @@ const Navbar = () => {
         </div>
         <div className="nav-item item-right">
           <div className="navSearch">
-            <BiSearch className="searchIcon" />
             <input
               type="text"
               placeholder="Search for products, brands and more"
+              onChange={({ target }) => setKeyword(target.value)}
             />
+            <BiSearch className="searchIcon" onClick={handleSearchClick} />
           </div>
           <div className="navIcons hide">
             <BiSearch className="sideIcons" />

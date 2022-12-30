@@ -5,17 +5,22 @@ import ProComp from "../../Components/product/ProComp";
 import { getProduct } from "../../Redux/product/action";
 import { useSelector, useDispatch } from "react-redux";
 import { Skeleton } from "antd";
+import { useParams } from "react-router-dom";
 const Product = () => {
   const dispatch = useDispatch();
+  const { keyword } = useParams();
   const {
     pro_loading,
-    pro_error,
     products: { data },
   } = useSelector((store) => store.products);
-  console.log(pro_error, pro_loading, data);
+  // console.log(pro_error, pro_loading, data);
   useEffect(() => {
-    dispatch(getProduct());
-  }, [dispatch]);
+    if (keyword) {
+      dispatch(getProduct(keyword));
+    } else {
+      dispatch(getProduct(" "));
+    }
+  }, [dispatch, keyword]);
 
   const sortOptions = [
     {

@@ -2,11 +2,11 @@ import * as types from "./types";
 import axios from "axios";
 
 //Get all products
-export const getProduct = () => async (dispatch) => {
+export const getProduct = (keyword) => async (dispatch) => {
   try {
     dispatch({ type: types.ALL_PRODUCT_REQUEST });
     const data = await axios.get(
-      "https://busy-rose-earthworm-cap.cyclic.app/product"
+      `https://busy-rose-earthworm-cap.cyclic.app/product?keyword=${keyword}`
     );
     dispatch({ type: types.ALL_PRODUCT_SUCCESS, payload: data });
   } catch (error) {
