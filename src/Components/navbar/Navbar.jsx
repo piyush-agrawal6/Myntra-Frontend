@@ -16,7 +16,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const handleSearchClick = () => {
     if (keyword.trim()) {
-      return navigate(`/product/${keyword}`);
+      return navigate(`/product?keyword=${keyword.trim()}`);
     }
   };
   const styleA = { left: "-100%" };
@@ -98,7 +98,7 @@ const Navbar = () => {
               </p>
 
               <li className="menuItem" onClick={handleClick}>
-                <Link to={`/product?gender=`}>ALL</Link>
+                <Link to={`/product`}>ALL</Link>
 
                 <div className="subMenu megaMenu menuColumn">
                   <div className="menuList">

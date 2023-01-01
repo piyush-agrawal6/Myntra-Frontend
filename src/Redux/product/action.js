@@ -3,12 +3,14 @@ import axios from "axios";
 
 //Get all products
 export const getProduct =
-  (keyword = "", gender = "", page = 1) =>
+  (keyword = "", gender = "", page = 1, categories = "") =>
   async (dispatch) => {
     try {
       dispatch({ type: types.ALL_PRODUCT_REQUEST });
       const data = await axios.get(
-        `https://busy-rose-earthworm-cap.cyclic.app/product?keyword=${keyword}&gender=${gender}&page=${page}`
+        `https://busy-rose-earthworm-cap.cyclic.app/product?keyword=${
+          keyword || ""
+        }&gender=${gender || ""}&page=${page}&categories=${categories || ""}`
       );
       dispatch({ type: types.ALL_PRODUCT_SUCCESS, payload: data });
     } catch (error) {

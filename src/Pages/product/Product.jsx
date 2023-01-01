@@ -10,10 +10,9 @@ const Product = () => {
   const search = useLocation().search;
   const query = new URLSearchParams(search).get("gender");
   const categories = new URLSearchParams(search).get("categories");
-  console.log(categories);
+  const keyword = new URLSearchParams(search).get("keyword");
   const [prevQuery, setPrevQuery] = useState(query);
   const dispatch = useDispatch();
-  const { keyword } = useParams();
   let [page, setPage] = useState(1);
   const {
     pro_loading,
@@ -152,7 +151,9 @@ const Product = () => {
         </button>
         <button>{page}</button>
         <button
-          disabled={page === Math.ceil(data?.totalPage)}
+          disabled={
+            page === Math.ceil(data?.totalPage) || data?.products.length < 20
+          }
           onClick={() => setPage(page + 1)}
         >
           Next

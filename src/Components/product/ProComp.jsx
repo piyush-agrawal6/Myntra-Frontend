@@ -3,7 +3,6 @@ import "./ProComp.css";
 import { RiStarSFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 const ProComp = ({ product }) => {
-  // console.log(product);
   const {
     images,
     rating,
@@ -17,7 +16,7 @@ const ProComp = ({ product }) => {
   } = product;
   return (
     <div className="itemBox">
-      <Link color="a" to={id}>
+      <Link color="a" to={`/product/${id}`}>
         <div className="itemImage">
           <img src={images.image1} alt="ProductImage" />
           <p>
