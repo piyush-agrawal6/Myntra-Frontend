@@ -1,26 +1,32 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Product.css";
 import { Select } from "antd";
 import ProComp from "../../Components/product/ProComp";
 import { getProduct } from "../../Redux/product/action";
 import { useSelector, useDispatch } from "react-redux";
 import { Skeleton } from "antd";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 const Product = () => {
+  const search = useLocation().search;
+  const query = new URLSearchParams(search).get("gender");
+  const categories = new URLSearchParams(search).get("categories");
+  console.log(categories);
+  const [prevQuery, setPrevQuery] = useState(query);
   const dispatch = useDispatch();
   const { keyword } = useParams();
+  let [page, setPage] = useState(1);
   const {
     pro_loading,
     products: { data },
   } = useSelector((store) => store.products);
-  // console.log(pro_error, pro_loading, data);
+  console.log(data);
   useEffect(() => {
-    if (keyword) {
-      dispatch(getProduct(keyword));
-    } else {
-      dispatch(getProduct(" "));
+    if (prevQuery !== query) {
+      setPage(1);
     }
-  }, [dispatch, keyword]);
+    dispatch(getProduct(keyword, query, page, categories));
+    setPrevQuery(query);
+  }, [dispatch, keyword, query, page, prevQuery, categories]);
 
   const sortOptions = [
     {
@@ -139,6 +145,18 @@ const Product = () => {
               })}
           </div>
         )}
+      </div>
+      <div className="pagination">
+        <button disabled={page === 1} onClick={() => setPage(page - 1)}>
+          Prev
+        </button>
+        <button>{page}</button>
+        <button
+          disabled={page === Math.ceil(data?.totalPage)}
+          onClick={() => setPage(page + 1)}
+        >
+          Next
+        </button>
       </div>
     </div>
   );

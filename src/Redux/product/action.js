@@ -2,20 +2,22 @@ import * as types from "./types";
 import axios from "axios";
 
 //Get all products
-export const getProduct = (keyword) => async (dispatch) => {
-  try {
-    dispatch({ type: types.ALL_PRODUCT_REQUEST });
-    const data = await axios.get(
-      `https://busy-rose-earthworm-cap.cyclic.app/product?keyword=${keyword}`
-    );
-    dispatch({ type: types.ALL_PRODUCT_SUCCESS, payload: data });
-  } catch (error) {
-    dispatch({
-      type: types.ALL_PRODUCT_ERROR,
-      payload: error.response.data.message,
-    });
-  }
-};
+export const getProduct =
+  (keyword = "", gender = "", page = 1) =>
+  async (dispatch) => {
+    try {
+      dispatch({ type: types.ALL_PRODUCT_REQUEST });
+      const data = await axios.get(
+        `https://busy-rose-earthworm-cap.cyclic.app/product?keyword=${keyword}&gender=${gender}&page=${page}`
+      );
+      dispatch({ type: types.ALL_PRODUCT_SUCCESS, payload: data });
+    } catch (error) {
+      dispatch({
+        type: types.ALL_PRODUCT_ERROR,
+        payload: error.response.data.message,
+      });
+    }
+  };
 
 //Get product details
 export const getProductDetails = (id) => async (dispatch) => {

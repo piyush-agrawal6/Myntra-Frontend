@@ -98,7 +98,7 @@ const Navbar = () => {
               </p>
 
               <li className="menuItem" onClick={handleClick}>
-                <Link>ALL</Link>
+                <Link to={`/product?gender=`}>ALL</Link>
 
                 <div className="subMenu megaMenu menuColumn">
                   <div className="menuList">
@@ -214,16 +214,16 @@ const Navbar = () => {
                 </div>
               </li>
               <li className="menuItem" onClick={handleClick}>
-                <Link to="/product">MEN</Link>
+                <Link to={`/product?gender=men`}>MEN</Link>
               </li>
               <li className="menuItem" onClick={handleClick}>
-                <Link>WOMEN</Link>
+                <Link to={`/product?gender=women`}>WOMEN</Link>
               </li>
               <li className="menuItem" onClick={handleClick}>
-                <Link>KIDS</Link>
+                <Link to={`/product?gender=kids`}>KIDS</Link>
               </li>
               <li className="menuItem" onClick={handleClick}>
-                <Link>BEAUTY</Link>
+                <Link to={`/product?categories=beautycare`}>BEAUTY</Link>
               </li>
               <p className="mobItem" onClick={handleClick}>
                 <Link to="/signup">Login / Signup</Link>
@@ -241,7 +241,14 @@ const Navbar = () => {
           </nav>
         </div>
         <div className="nav-item item-right">
-          <div className="navSearch">
+          <div
+            className="navSearch"
+            onKeyUp={({ keyCode }) => {
+              if (keyCode === 13) {
+                handleSearchClick();
+              }
+            }}
+          >
             <input
               type="text"
               placeholder="Search for products, brands and more"
