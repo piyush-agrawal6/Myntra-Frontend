@@ -151,6 +151,9 @@ li a {
   visibility: visible;
   opacity: 1;
 }
+/* .menuItem > a {
+  width: 100%;
+} */
 .megaMenu {
   left: 35%;
   transform: translateX(-50%);

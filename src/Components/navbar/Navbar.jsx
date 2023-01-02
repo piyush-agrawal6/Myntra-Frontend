@@ -10,10 +10,17 @@ import { Dropdown } from "antd";
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const [keyword, setKeyword] = useState("");
-  const handleClick = () => {
-    setClick(!click);
-  };
   const navigate = useNavigate();
+  const handleClick = (param = "", value = "") => {
+    setClick(!click);
+    if (param === "" || value === "") {
+      setClick(!click);
+    } else if (param === "all") {
+      return navigate("/product");
+    } else {
+      return navigate(`/product?${param}=${value}`);
+    }
+  };
   const handleSearchClick = () => {
     if (keyword.trim()) {
       return navigate(`/product?keyword=${keyword.trim()}`);
@@ -94,12 +101,11 @@ const Navbar = () => {
             <ul className="menu-main">
               <p className="mobItem">
                 <Link>SHOP FOR</Link>
-                <MdClose className="cross" onClick={handleClick} />
+                <MdClose className="cross" onClick={() => handleClick()} />
               </p>
 
-              <li className="menuItem" onClick={handleClick}>
+              <li className="menuItem" onClick={() => handleClick("all","all")}>
                 <Link to={`/product`}>ALL</Link>
-
                 <div className="subMenu megaMenu menuColumn">
                   <div className="menuList">
                     <ul>
@@ -213,16 +219,28 @@ const Navbar = () => {
                   </div>
                 </div>
               </li>
-              <li className="menuItem" onClick={handleClick}>
+              <li
+                className="menuItem"
+                onClick={() => handleClick("gender", "men")}
+              >
                 <Link to={`/product?gender=men`}>MEN</Link>
               </li>
-              <li className="menuItem" onClick={handleClick}>
+              <li
+                className="menuItem"
+                onClick={() => handleClick("gender", "women")}
+              >
                 <Link to={`/product?gender=women`}>WOMEN</Link>
               </li>
-              <li className="menuItem" onClick={handleClick}>
+              <li
+                className="menuItem"
+                onClick={() => handleClick("gender", "kids")}
+              >
                 <Link to={`/product?gender=kids`}>KIDS</Link>
               </li>
-              <li className="menuItem" onClick={handleClick}>
+              <li
+                className="menuItem"
+                onClick={() => handleClick("categories", "beautycare")}
+              >
                 <Link to={`/product?categories=beautycare`}>BEAUTY</Link>
               </li>
               <p className="mobItem" onClick={handleClick}>
