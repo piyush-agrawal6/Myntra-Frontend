@@ -10,40 +10,40 @@ const initialState = {
   },
 };
 
-export  function authReducer(state = initialState, { type, payload }) {
+export function authReducer(state = initialState, { type, payload }) {
   switch (type) {
-    // case types.AUTH_LOGIN_REQUEST:
-    //   return {
-    //     ...state,
-    //     userLogin: { loading: true, error: false },
-    //   };
-    // case AUTH_LOGIN_SUCCESS:
-    //   localStorage.setItem("token", payload.token);
-    //   return {
-    //     ...state,
-    //     userLogin: { loading: false, error: false, message: payload.message },
-    //     data: {
-    //       isAuthenticated: true,
-    //       token: payload.token,
-    //       user: payload.user,
-    //     },
-    //   };
-    // case AUTH_LOGIN_FAILURE:
-    //   return {
-    //     ...state,
-    //     userLogin: { loading: false, error: true, message: payload.message },
-    //   };
+    case types.LOGIN_USER_REQUEST:
+      return {
+        ...state,
+        userLogin: { loading: true, error: false },
+      };
+    case types.LOGIN_USER_SUCCESS:
+      localStorage.setItem("token", payload.token);
+      return {
+        ...state,
+        userLogin: { loading: false, error: false, message: payload.message },
+        data: {
+          isAuthenticated: true,
+          token: payload.token,
+          user: payload.user,
+        },
+      };
+    case types.LOGIN_USER_ERROR:
+      return {
+        ...state,
+        userLogin: { loading: false, error: true, message: "Error" },
+      };
 
-    // case AUTH_LOGOUT:
-    //   localStorage.removeItem("token");
-    //   return {
-    //     ...state,
-    //     data: {
-    //       isAuthenticated: false,
-    //       token: null,
-    //       user: null,
-    //     },
-    //   };
+    case types.AUTH_LOGOUT:
+      localStorage.removeItem("token");
+      return {
+        ...state,
+        data: {
+          isAuthenticated: false,
+          token: null,
+          user: null,
+        },
+      };
 
     case types.REGISTER_USER_REQUEST:
       return {
@@ -68,7 +68,7 @@ export  function authReducer(state = initialState, { type, payload }) {
     case types.REGISTER_USER_ERROR:
       return {
         ...state,
-        userRegister: { loading: false, error: true, message: payload.message },
+        userRegister: { loading: false, error: true, message: "Error" },
       };
     default:
       return state;

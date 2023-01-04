@@ -24,3 +24,27 @@ export const registerUser = (userData) => async (dispatch) => {
     });
   }
 };
+
+export const authLogin = (data) => async (dispatch) => {
+  try {
+    dispatch({ type: types.LOGIN_USER_REQUEST });
+
+    const res = await axios.post(
+      "https://busy-rose-earthworm-cap.cyclic.app/user/login",
+      data
+    );
+    console.log(res);
+    dispatch({
+      type: types.LOGIN_USER_SUCCESS,
+      payload: {
+        token: res.data.token,
+        message: res.data.message,
+        user: res.data.user,
+      },
+    });
+  } catch (error) {
+    dispatch({
+      type: types.LOGIN_USER_ERROR,
+    });
+  }
+};
