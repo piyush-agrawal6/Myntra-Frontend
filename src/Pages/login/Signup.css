@@ -21,7 +21,6 @@
 .signupDetail {
   padding: 2rem 4rem;
   width: 50%;
-  height: 300px;
 }
 .signupDetail > div:nth-child(1) {
   display: flex;
@@ -35,7 +34,7 @@ span {
 .signupDetail > div:nth-child(2) input {
   width: 100%;
   padding: 10px;
-  margin: 1rem 0;
+  margin: 0.7rem 0;
   font-size: 15px;
   letter-spacing: 1px;
   outline: none;
@@ -59,7 +58,7 @@ span {
   font-size: 14px;
   margin: 5px 0;
 }
-.signupDetail > div:nth-child(2) span {
+.signupDetail > div:nth-child(2) p a {
   color: #fd436e;
   font-weight: 500;
   cursor: pointer;

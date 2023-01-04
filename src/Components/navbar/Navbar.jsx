@@ -48,7 +48,7 @@ const Navbar = () => {
       label: login ? (
         <p p="10px">Logout</p>
       ) : (
-        <Link padding="10px" to="/signup">
+        <Link padding="10px" to="/login">
           Login / Signup
         </Link>
       ),
