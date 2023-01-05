@@ -25,6 +25,29 @@ export const registerUser = (userData) => async (dispatch) => {
   }
 };
 
+// export const editUser = (userData, id) => async (dispatch) => {
+//   try {
+//     dispatch({ type: types.UPDATE_USER_REQUEST });
+//     const data = await axios.put(
+//       `https://busy-rose-earthworm-cap.cyclic.app/user/update?id=${id}`,
+//       userData
+//     );
+//     console.log(data.data);
+//     dispatch({
+//       type: types.UPDATE_USER_SUCCESS,
+//       payload: {
+//         token: data.data.token,
+//         message: data.data.message,
+//         user: data.data.user,
+//       },
+//     });
+//   } catch (error) {
+//     dispatch({
+//       type: types.UPDATE_USER_ERROR,
+//     });
+//   }
+// };
+
 export const authLogin = (data) => async (dispatch) => {
   try {
     dispatch({ type: types.LOGIN_USER_REQUEST });

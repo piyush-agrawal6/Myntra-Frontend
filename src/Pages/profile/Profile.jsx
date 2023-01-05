@@ -5,34 +5,27 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 const Profile = () => {
   const [modal2Open, setModal2Open] = useState(false);
+  const { user } = useSelector((store) => store.auth.data);
   const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
+    name: user.name || "",
+    phone: user.phone || "",
     avatar: "",
     gender: "",
-    shipping: "",
+    shipping: user.shipping || "",
   });
   const handleFormChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    if (
-      formData.name.trim() !== "" &&
-      formData.email.trim() !== "" &&
-      formData.password.trim() !== ""
-    ) {
-      if (
-        formData.name.trim().length < 4 ||
-        formData.password.trim().length < 4
-      ) {
-      } else {
-        // dispatch(registerUser(formData));
+    let data = {};
+    for (let key in formData) {
+      if (formData[key] !== "") {
+        data[key] = formData[key];
       }
-    } else {
     }
+    console.log(data);
   };
-  const { user } = useSelector((store) => store.auth.data);
 
   return (
     <div className="profile">
@@ -104,11 +97,11 @@ const Profile = () => {
                 placeholder="Shipping details"
               />
               <br />
-              <select>
-                <option value="true">Select gender</option>
-                <option value="true">Male</option>
-                <option value="false">Female</option>
-                <option value="false">Others</option>
+              <select name="gender" onChange={handleFormChange}>
+                <option value="">Select gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Others</option>
               </select>
               <br />
 
