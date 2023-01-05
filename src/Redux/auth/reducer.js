@@ -6,7 +6,7 @@ const initialState = {
   data: {
     isAuthenticated: !!TOKEN,
     token: TOKEN,
-    user: null,
+    user: JSON.parse(localStorage.getItem("user")) || null,
   },
 };
 

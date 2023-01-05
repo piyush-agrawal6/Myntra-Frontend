@@ -5,12 +5,17 @@ import { BiSearch, BiUser, BiHeart } from "react-icons/bi";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { MdClose } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
 // import { RiAdminLine } from "react-icons/ri";
 import { Dropdown } from "antd";
+import { authLogout } from "../../Redux/auth/action";
+
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const [keyword, setKeyword] = useState("");
   const navigate = useNavigate();
+  const auth = useSelector((store) => store.auth);
+  const dispatch = useDispatch();
   const handleClick = (param = "", value = "") => {
     setClick(!click);
     if (param === "" || value === "") {
@@ -26,12 +31,13 @@ const Navbar = () => {
       return navigate(`/product?keyword=${keyword.trim()}`);
     }
   };
+  console.log(auth.data.isAuthenticated)
   const styleA = { left: "-100%" };
   const styleB = { left: "0%" };
   const login = false;
   const items = [
     {
-      label: login ? (
+      label: auth.data.isAuthenticated ? (
         <div>
           <h4>Welcome</h4>
           <p>Access orders and many more !</p>
@@ -45,8 +51,10 @@ const Navbar = () => {
       key: "-1",
     },
     {
-      label: login ? (
-        <p p="10px">Logout</p>
+      label: auth.data.isAuthenticated ? (
+        <p onClick={() => dispatch(authLogout())} p="10px">
+          Logout
+        </p>
       ) : (
         <Link padding="10px" to="/login">
           Login / Signup
@@ -104,7 +112,10 @@ const Navbar = () => {
                 <MdClose className="cross" onClick={() => handleClick()} />
               </p>
 
-              <li className="menuItem" onClick={() => handleClick("all","all")}>
+              <li
+                className="menuItem"
+                onClick={() => handleClick("all", "all")}
+              >
                 <Link to={`/product`}>ALL</Link>
                 <div className="subMenu megaMenu menuColumn">
                   <div className="menuList">

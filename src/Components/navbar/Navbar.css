@@ -82,19 +82,17 @@ li a {
   transition: all 0.3s ease;
 }
 .navSearch {
-  /* display: none; */
   display: flex;
   align-items: center;
   background-color: rgb(238, 238, 238);
   width: 70%;
-  padding: 0 1rem;
 }
 .navSearch > input {
   outline: none;
   border: none;
   background-color: rgb(238, 238, 238);
-  padding: 0 20px;
-  width: 90%;
+  padding: 10px 20px;
+  width: 94%;
 }
 .navIcons a {
   display: flex;

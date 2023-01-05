@@ -34,6 +34,7 @@ export const authLogin = (data) => async (dispatch) => {
       data
     );
     console.log(res);
+    localStorage.setItem("user", JSON.stringify(res.data.user));
     dispatch({
       type: types.LOGIN_USER_SUCCESS,
       payload: {
@@ -46,5 +47,15 @@ export const authLogin = (data) => async (dispatch) => {
     dispatch({
       type: types.LOGIN_USER_ERROR,
     });
+  }
+};
+
+export const authLogout = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: types.AUTH_LOGOUT,
+    });
+  } catch (error) {
+    console.log(error);
   }
 };

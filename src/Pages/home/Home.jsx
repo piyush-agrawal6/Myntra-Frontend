@@ -111,49 +111,6 @@ const Home = () => {
           <img src="./assets/category/Kids.webp" alt="" />
         </div>
       </div>
-      <p className="homeHeader">NEW IN TOP BRANDS</p>
-      <div className="homeCategories">
-        <div>
-          <Link>
-            <img src="./assets/brands/HM.webp" alt="" />
-          </Link>
-        </div>
-        <div>
-          <Link>
-            <img src="./assets/brands/W.webp" alt="" />
-          </Link>
-        </div>
-        <div>
-          <Link>
-            <img src="./assets/brands/CK.webp" alt="" />
-          </Link>
-        </div>
-        <div>
-          <Link>
-            <img src="./assets/brands/Levis.webp" alt="" />
-          </Link>
-        </div>
-        <div>
-          <Link>
-            <img src="./assets/brands/LP.webp" alt="" />
-          </Link>
-        </div>
-        <div>
-          <Link>
-            <img src="./assets/brands/Max.webp" alt="" />
-          </Link>
-        </div>
-        <div>
-          <Link>
-            <img src="./assets/brands/Metro.webp" alt="" />
-          </Link>
-        </div>
-        <div>
-          <Link>
-            <img src="./assets/brands/Nike.webp" alt="" />
-          </Link>
-        </div>
-      </div>
       <p className="homeHeader">COLORS OF THE SEASON</p>
       <div className="homeColors">
         <div>
